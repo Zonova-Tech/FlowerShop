@@ -3,7 +3,6 @@
 This workspace now includes both repositories needed for the Zonova platform:
 
 - **`/` (FlowerShop)**: Flutter 3+ app (Android, iOS, Web, null-safety).
-  - Includes Android and iOS platform scaffolding files for native packaging setup.
 - **`/ZonovaMistAPI`**: Node.js backend service for bouquet preview, pricing, and payment helpers.
 
 ---
@@ -64,8 +63,6 @@ lib/
   - health endpoint
   - bouquet preview endpoint
   - payment helper endpoints
-  - mobile runtime config endpoint (`/mobile/config`)
-  - Flutter bootstrap guidance endpoint (`/client/bootstrap`)
 
 ---
 
@@ -112,14 +109,6 @@ npm install
 npm run dev
 ```
 
-
-### Recreate Flutter native scaffolding (recommended fix for unsupported Gradle projects)
-```bash
-./scripts/recreate_flutter_project.sh .
-```
-
-This script wraps the required `flutter create -t app <app-directory>` flow and refreshes native folders while preserving your app code.
-
 ---
 
 ## 6) Deployment
@@ -137,7 +126,7 @@ firebase deploy --only firestore:rules,storage
 
 ### Mobile apps
 - Android: `flutter build appbundle`
-- iOS: `flutter create --platforms=ios .` (if native project metadata is missing), then `flutter build ipa`
+- iOS: `flutter build ipa`
 
 ---
 
