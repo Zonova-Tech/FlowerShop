@@ -21,6 +21,3 @@ cp "$TMP_DIR/zonova_flowers_tmp/.gitignore" "$APP_DIR/.gitignore"
 
 
 echo "Done. Native scaffolding refreshed."
-
-# Ensure gradle-wrapper.jar exists after refresh (binary not committed).
-"$(dirname "$0")/bootstrap_android_wrapper.sh"

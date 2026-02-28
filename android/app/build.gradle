@@ -1,38 +1,39 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'dev.flutter.flutter-gradle-plugin'
 }
 
 android {
-    namespace = 'com.zonova.flowers'
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
-    }
+    namespace 'com.zonova.flowers'
+    compileSdk 34
 
     defaultConfig {
-        applicationId = 'com.zonova.flowers'
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        applicationId 'com.zonova.flowers'
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName '1.0.0'
     }
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
     }
 }
 
-flutter {
-    source = '../..'
+dependencies {
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
 }
