@@ -4,7 +4,6 @@ import express from 'express';
 import { env } from './config/env.js';
 import { buildAIPrompt, calculateBouquetTotal } from './modules/bouquet/bouquet.service.js';
 import { createPayHereHash, webxpayPayload } from './modules/payments/payment.service.js';
-import { buildMobileConfig } from './modules/config/mobile-config.service.js';
 
 const app = express();
 app.use(cors());
@@ -26,10 +25,6 @@ app.post('/payments/payhere', (req, res) => {
 
 app.post('/payments/webxpay', (req, res) => {
   res.json(webxpayPayload(req.body));
-});
-
-app.get('/mobile/config', (_req, res) => {
-  res.json(buildMobileConfig());
 });
 
 app.listen(env.port, () => {
